@@ -1,6 +1,7 @@
 package characters;
 
 import entities.Iten;
+import entities.weapons.Weapon;
 import enumeration.ClassType;
 import enumeration.ItenRarity;
 import enumeration.ItenType;
@@ -20,8 +21,9 @@ public class Wizzard extends Person implements Gamer{
         deffense = 30.0;
         speed = 40.0;
         mana = 10000.0;
-        weapon = new Iten("Cajado Velho", ItenType.STAFF, ItenRarity.POOR);
+        weapon = new Weapon("Cajado Velho", ItenType.STAFF, ItenRarity.POOR, 12.0);
     }
+
 
     public Double getMana() {
         return mana;
@@ -72,6 +74,8 @@ public class Wizzard extends Person implements Gamer{
     public void equipIten(Iten iten){
         if (iten.getType() == ItenType.STAFF){
             weapon = iten;
+            System.out.printf("%s equipou %s como arma principal.",name, weapon
+            .getName());
         }else{
             System.out.println("Impossível equipar.");
         }
@@ -92,11 +96,13 @@ public class Wizzard extends Person implements Gamer{
     @Override
     public String status(){
         StringBuilder sb = new StringBuilder();
-        sb.append(String.format("Nome: %s, Clan: %s, Classe: %s, LV: ", name, clan, getClas()));
-        sb.append(getLevel());
-        sb.append(String.format(" Vida: %.1f", getHealth()));
-        sb.append(String.format(" Mana: %.1f, Velocidade: %.1f, Ataque: %.1f, Defesa: %.1f\n", getMana(), getSpeed(), getAttack(), getDeffense()));
+        sb.append("-------------------------------------------------------------------------------------------------------------------------------\n");
+        sb.append(String.format(" - Nome: %s\n - LV: %d\n - Clan: %s\n - Classe: %s\n", name, getLevel(), clan, getClas()));
+        sb.append(String.format(" - Vida: %.1fHP\n", getHealth()));
+        sb.append(String.format(" - Mana: %.1f\n - Velocidade: %.1f\n - Ataque: %.1f\n - Defesa: %.1f\n", getMana(), getSpeed(), getAttack(), getDeffense()));
         sb.append("-------------------------------------------------------------------------------------------------------------------------------");
         return sb.toString();
     }
+
+
 }

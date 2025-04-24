@@ -18,6 +18,7 @@ public class Inventory {
 
     public void addInBag(Iten iten){
         itens.add(iten);
+        System.out.println("Iten %s adicionado ao inventário.".formatted(iten.getName()));
     }
     
     public void equipIten(Iten iten){};

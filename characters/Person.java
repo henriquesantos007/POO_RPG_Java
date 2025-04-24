@@ -26,7 +26,7 @@ public abstract class Person {
 
 
     // Inventário. Bolsa de itens
-    protected Inventory bag;
+    public Inventory bag;
 
 
     // getter e setters
@@ -62,8 +62,40 @@ public abstract class Person {
         return speed;
     }
 
+    public Double getHealthMax() {
+        return healthMax;
+    }
+
     public void setClan(String clan) {
         this.clan = clan;
+    }
+
+    public void setHealth(Double health) {
+        this.health = health;
+    }
+
+    public void setAttack(Double attack) {
+        this.attack = attack;
+    }
+
+    public void setClas(ClassType clas) {
+        this.clas = clas;
+    }
+
+    public void setDeffense(Double deffense) {
+        this.deffense = deffense;
+    }
+
+    public void setHealthMax(Double healthMax) {
+        this.healthMax = healthMax;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setSpeed(Double speed) {
+        this.speed = speed;
     }
 
 
@@ -78,10 +110,10 @@ public abstract class Person {
     // Método para exibir o status do jogador
     public String status(){
         StringBuilder sb = new StringBuilder();
-        sb.append(String.format("\nNome: %s, Clan: %s, Classe: %s, LV: ", name, clan, getClas()));
+        sb.append(String.format("\n - Nome: %s\n - Clan: %s\n - Classe: %szm - LV: ", name, clan, getClas()));
         sb.append(getLevel());
-        sb.append(String.format(" Vida: %.1f", getHealth()));
-        sb.append(String.format("Velocidade: %.1f, Ataque: %.1f, Defesa: %.1f", getSpeed(), getAttack(), getDeffense()));
+        sb.append(String.format("\n - Vida: %.1fHP\n", getHealth()));
+        sb.append(String.format(" - Velocidade: %.1f\n - Ataque: %.1f\n - Defesa: %.1f", getSpeed(), getAttack(), getDeffense()));
 
         return sb.toString();
     }

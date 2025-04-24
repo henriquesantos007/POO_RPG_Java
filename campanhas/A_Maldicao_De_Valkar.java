@@ -1,4 +1,4 @@
-package application;
+package campanhas;
 
 import java.util.Scanner;
 
