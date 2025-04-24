@@ -14,6 +14,7 @@ import java.util.Scanner;
 import entities.Iten;
 import entities.consumables.Consumable;
 import entities.consumables.HealerPotion;
+import entities.consumables.Key;
 import entities.consumables.PoisonPotion;
 import entities.weapons.Weapon;
 import enumeration.ItenRarity;
@@ -30,7 +31,7 @@ public class TesteItens {
         Iten iten1 = new Weapon("Ceifeira da Morte", ItenType.SWORD, ItenRarity.LEGENDARY, 250.0);
         Iten iten2 = new Weapon("Noite Estrelada", ItenType.BOW, ItenRarity.COMMON, 15.0);
         Iten iten3 = new Weapon("Cetro de Merlin", ItenType.STAFF, ItenRarity.RARE, 100.0);
-        Iten iten4 = new Consumable("Chave do Inferno", ItenType.KEY);
+        Iten iten4 = new Key("Chave do Inferno", ItenType.KEY);
         Iten iten5 = new HealerPotion("Poção de Cura Pequena", ItenType.HEALLER);
         Iten iten6 = new PoisonPotion("poção Venenosa", ItenType.POISON);
 

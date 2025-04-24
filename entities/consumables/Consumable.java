@@ -1,9 +1,10 @@
 package entities.consumables;
 
+import characters.Person;
 import entities.Iten;
 import enumeration.ItenType;
 
-public class Consumable extends Iten{
+public abstract class Consumable extends Iten{
     protected Double duration;
     protected Double quantityOfDuration;
 
@@ -29,7 +30,5 @@ public class Consumable extends Iten{
         this.quantityOfDuration = quantityOfDuration;
     }
 
-    public void consumeIten(){
-        duration -= quantityOfDuration;
-    }
+    public abstract void useItem(Person person);
 }

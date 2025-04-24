@@ -1,5 +1,6 @@
 package entities.consumables;
 
+import characters.Person;
 import enumeration.ItenType;
 
 public class Key extends Consumable{
@@ -10,10 +11,10 @@ public class Key extends Consumable{
         quantityOfDuration = 1.0;
     }
 
-    public void useKey(){
+    public void useItem(Person person){
         if (duration > 0){
             duration -= quantityOfDuration;
-            System.out.printf("Chave %s usada com sucesso.", getName());
+            System.out.printf("%s usou a chave %s com sucesso. ", person.getName(), getName());
         } else {
             System.out.println("Iten indisponível.");
         }

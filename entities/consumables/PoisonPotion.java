@@ -28,23 +28,23 @@ public class PoisonPotion extends Consumable {
 
 
     // Usar a poção de cura
-    public void usePotion(Person person){
+    public void useItem(Person person){
         Double healtPerson = person.getHealth();
 
         if (healtPerson <= 0){
-            System.out.println("Impossível usar esse íten em um personagem morto.");
+            System.out.println("Impossível usar esse item em um personagem morto.");
         } else if (healtPerson <= damageRange){
             person.setHealth(healtPerson -= damageRange);
-            System.out.printf("Veneno usado com sucesso. %s foi morto HP%.1f.\n", person.getName(), person.getHealth());
+            System.out.printf("Veneno usado com sucesso... %s foi morto HP%.1f.\n", person.getName(), person.getHealth());
         } else {
-            person.setHealth(person.getHealthMax());
-            System.out.printf("Veneno usado com sucesso.. Vida de %s reduzida para HP%.1f.\n",person.getName(), person.getHealth());
+            person.setHealth(healtPerson -= damageRange);
+            System.out.printf("Veneno usado com sucesso... Vida de %s reduzida para HP%.1f.\n",person.getName(), person.getHealth());
         }
 
         duration -= quantityOfDuration;
 
         if (duration <= 0){
-            System.out.printf("O iten %s esgotou.", getName());
+            System.out.printf("O iten %s esgotou. ", getName());
         }
     }
 

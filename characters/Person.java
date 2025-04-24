@@ -26,7 +26,12 @@ public abstract class Person {
 
 
     // Inventário. Bolsa de itens
-    public Inventory bag;
+    public Inventory bag = new Inventory();
+
+
+    public Inventory getBag() {
+        return bag;
+    }
 
 
     // getter e setters
@@ -98,12 +103,54 @@ public abstract class Person {
         this.speed = speed;
     }
 
+    public void setLevel(int level) {
+        this.level = level;
+    }
+
 
     // Métodos principais
-    public abstract void attackMove (Person target);
-    public abstract void takeDamege(Double damege);
-    public abstract boolean isAlive();
-    public abstract void uppLevel();
+
+    // Método de ataque. Cada classe terá seu método específico
+    public void attackMove (Person target){
+        System.out.println("------------------------------------");
+        System.out.printf("%s Ataca %s\n", name, target.getName());
+    }
+
+    // Método de sofrer dano. Cada classe terá seu método específico
+    public void takeDamege(Double damege){
+        if(health <= 0){
+            System.out.println("------------------------------------");
+            isAlive();
+        }
+    }
+
+
+    // Define se o personagem está vivo ou não
+    public boolean isAlive(){
+        if (health > 0){
+            //System.out.println("------------------------------------");
+            //System.out.printf("O personagem %s está vivo!\n", name);
+            return true;
+        } else {
+            //System.out.println("------------------------------------");
+            //System.out.printf("O personagem %s está morto!\n", name);
+            return false;
+        }
+    };
+
+
+    // Uppar de level. Melhora os atributos do personagem
+    public void uppLevel(){
+        this.level++;
+        System.out.printf("%s subiu para o Nível %d level!\n", name, level);
+        health += level * 0.2;
+        attack += level * 0.2;
+        deffense += level * 0.2;
+        speed += level * 0.2;
+    }
+
+
+    // Equipar íten com arma principal. Cada classe terá seu método específico
     public abstract void equipIten(Iten iten);
     
 
@@ -117,4 +164,6 @@ public abstract class Person {
 
         return sb.toString();
     }
+
+    public void makeTurn(){}
 }

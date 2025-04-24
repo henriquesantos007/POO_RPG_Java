@@ -28,7 +28,7 @@ public class HealerPotion extends Consumable{
 
 
     // Usar a poção de cura
-    public void usePotion(Person person){
+    public void useItem(Person person){
         Double healtPerson = person.getHealth();
         Double healthMaxPerson = person.getHealthMax();
 
@@ -46,7 +46,7 @@ public class HealerPotion extends Consumable{
         duration -= quantityOfDuration;
 
         if (duration <= 0){
-            System.out.printf("O iten %s esgotou.", getName());
+            System.out.printf("O iten %s esgotou. ", getName());
         }
     }
 

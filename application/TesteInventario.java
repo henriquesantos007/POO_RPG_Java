@@ -6,6 +6,10 @@ import java.util.Scanner;
 import characters.Person;
 import characters.Wizzard;
 import entities.Iten;
+import entities.consumables.Consumable;
+import entities.consumables.HealerPotion;
+import entities.consumables.Key;
+import entities.consumables.PoisonPotion;
 import entities.weapons.Weapon;
 import enumeration.ItenRarity;
 import enumeration.ItenType;
@@ -16,17 +20,60 @@ public class TesteInventario {
         Scanner sc = new Scanner(System.in);
 
         // Inicialização do personagem do usuário
-        Person myPlayer = new Wizzard("Gandalf", "ASS");
+        Person myPlayer = new Wizzard("Gandalf", "ASSIS");
 
         // Itens da campanha
-        Iten iten1 = new Weapon("Ceifeira da Morte", ItenType.SWORD, ItenRarity.LEGENDARY, 250.0);
-        //Iten iten2 = new Weapon("Noite Estrelada", ItenType.BOW, ItenRarity.COMMON, 15.0);
-        //Iten iten3 = new Weapon("Cetro de Merlin", ItenType.STAFF, ItenRarity.RARE, 100.0);
-        //Iten iten4 = new Weapon("Chave do Inferno", ItenType.KEY, ItenRarity.POOR, 12.0);
+        Iten espada = new Weapon("Ceifeira da Morte", ItenType.SWORD, ItenRarity.LEGENDARY, 250.0);
+        Iten arco = new Weapon("Noite Estrelada", ItenType.BOW, ItenRarity.COMMON, 15.0);
+        Iten cajado = new Weapon("Cetro de Merlin", ItenType.STAFF, ItenRarity.RARE, 100.0);
+        Iten chave = new Key("Chave do Inferno", ItenType.KEY);
+        Iten pocao_cura = new HealerPotion("Poção de Cura Pequena", ItenType.HEALLER);
+        Iten pocao_veneno = new PoisonPotion("Poção Venenosa", ItenType.POISON);
 
+        myPlayer.bag.addInBag(espada);
+        myPlayer.bag.addInBag(arco);
+        myPlayer.bag.addInBag(cajado);
+        myPlayer.bag.addInBag(chave);
+        myPlayer.bag.addInBag(pocao_cura);
+        myPlayer.bag.addInBag(pocao_veneno);
+        myPlayer.bag.listItens();
+
+
+        System.out.println();
+
+        myPlayer.bag.useIten((Consumable)chave, myPlayer);
+
+        System.out.println();
+
+        myPlayer.bag.useIten((Consumable)pocao_veneno, myPlayer);
+
+        System.out.println();
+
+        myPlayer.bag.useIten((Consumable)pocao_cura, myPlayer);
+        myPlayer.bag.useIten((Consumable)pocao_cura, myPlayer);
+
+        myPlayer.bag.useIten((Consumable)pocao_veneno, myPlayer);
+
+        myPlayer.bag.useIten((Consumable)pocao_cura, myPlayer);
+        myPlayer.bag.useIten((Consumable)pocao_cura, myPlayer);
+
+        myPlayer.bag.useIten((Consumable)pocao_veneno, myPlayer);
+
+        myPlayer.bag.useIten((Consumable)pocao_cura, myPlayer);
+        myPlayer.bag.useIten((Consumable)pocao_cura, myPlayer);
+        myPlayer.bag.useIten((Consumable)pocao_cura, myPlayer);
+
+        myPlayer.bag.useIten((Consumable)pocao_veneno, myPlayer);
+
+        myPlayer.bag.useIten((Consumable)pocao_cura, myPlayer);
+        myPlayer.bag.useIten((Consumable)pocao_cura, myPlayer);
+
+        myPlayer.bag.useIten((Consumable)pocao_veneno, myPlayer);
         
-        myPlayer.bag.addInBag(iten1);
-        //myPlayer.getBag().listItens();
+        myPlayer.bag.useIten((Consumable)pocao_cura, myPlayer);
+        
+        
+        
     
 
         sc.close();

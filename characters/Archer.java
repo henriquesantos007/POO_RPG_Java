@@ -41,11 +41,12 @@ public class Archer extends Person implements Gamer{
     // Método específico de ataque. Levará a precisão do arqueiro como fator
     @Override
     public void attackMove(Person target){
+        super.attackMove(target);
         Random rand = new Random();
         double chance = rand.nextDouble() * 100;
 
         if (chance <= precision) {
-            System.out.println(name + " dispara uma flecha certeira!");
+            System.out.printf("%s dispara uma flecha certeira com %s!",name, weapon.getName());
             target.takeDamege(attack);
         } else {
             System.out.println(name + " erra o disparo!");
@@ -56,31 +57,21 @@ public class Archer extends Person implements Gamer{
     // Método de sofrer dano
     @Override
     public void takeDamege(Double damege){
+        super.takeDamege(damege);
         health -= damege;
         if (health <= 0){
-            System.out.printf("O %s %s recebeu %.1f de dano e foi morto.\n", clas, name, damege);
+            System.out.printf("O %s %s recebeu %.1f de dano e foi abatido.\n", clas, name, damege);
         } else {
             System.out.printf("O %s %s recebeu %.1f de dano.\n", clas, name, damege);
         }
     }
 
-
-    // Verifica se está vivo
-    @Override
-    public boolean isAlive(){
-        return health > 0;
-    }
     
 
     // Uppar de level. Melhora os atributos do personagem
     @Override
     public void uppLevel(){
-        this.level++;
-        healthMax += level * 0.2;
-        health = healthMax;
-        attack += level * 0.2;
-        deffense += level * 0.2;
-        speed += level * 0.2;
+        super.uppLevel();
         precision += level * 0.2;
     }
 
@@ -117,12 +108,11 @@ public class Archer extends Person implements Gamer{
     @Override
     public String status(){
         StringBuilder sb = new StringBuilder();
-        sb.append("-------------------------------------------------------------------------------------------------------------------------------\n");
+        sb.append("---------------------\n");
         sb.append(String.format(" - Nome: %s\n - LV: %d\n - Clan: %s\n - Classe: %s\n", name, getLevel(), clan, getClas()));
         sb.append(String.format(" - Vida: %.1fHP\n", getHealth()));
         sb.append(String.format(" - Precision: %.1f%%\n - Velocidade: %.1f\n - Ataque: %.1f\n - Defesa: %.1f\n", getPrecision(), getSpeed(), getAttack(), getDeffense()));
-        sb.append("-------------------------------------------------------------------------------------------------------------------------------\n");
-        
+        sb.append("---------------------");        
         return sb.toString();
     }
 }
