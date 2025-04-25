@@ -12,7 +12,6 @@ import java.util.Locale;
 import java.util.Scanner;
 
 import entities.Iten;
-import entities.consumables.Consumable;
 import entities.consumables.HealerPotion;
 import entities.consumables.Key;
 import entities.consumables.PoisonPotion;

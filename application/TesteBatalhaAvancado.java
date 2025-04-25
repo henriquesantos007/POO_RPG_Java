@@ -1,6 +1,5 @@
 package application;
 
-import java.beans.PersistenceDelegate;
 import java.util.Locale;
 import java.util.Scanner;
 

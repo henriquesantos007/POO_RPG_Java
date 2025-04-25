@@ -109,7 +109,7 @@ public class Archer extends Person implements Gamer{
     public String status(){
         StringBuilder sb = new StringBuilder();
         sb.append("---------------------\n");
-        sb.append(String.format(" - Nome: %s\n - LV: %d\n - Clan: %s\n - Classe: %s\n", name, getLevel(), clan, getClas()));
+        sb.append(String.format(" - Nome: %s\n - LV: %d\n - Weapon: %s\n - Clan: %s\n - Classe: %s\n", name, getLevel(), weapon.getName(),clan, getClas()));
         sb.append(String.format(" - Vida: %.1fHP\n", getHealth()));
         sb.append(String.format(" - Precision: %.1f%%\n - Velocidade: %.1f\n - Ataque: %.1f\n - Defesa: %.1f\n", getPrecision(), getSpeed(), getAttack(), getDeffense()));
         sb.append("---------------------");        

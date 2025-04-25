@@ -12,21 +12,28 @@ public class Inventory {
     public Inventory(){}
 
     public void listItens(){
-        System.out.println("========================= MY BAG =========================");
-        for(Iten iten : itens){
-            System.err.println(iten.toString());
+        if (itens.isEmpty()){
+            System.out.println("\n========================= MY BAG =========================");
+            System.out.println("Moscas saem da sua bolsa. Você não tem nada no inventário.");
+            System.out.println("==========================================================\n");
+            return;
+        } else{
+            System.out.println("\n========================= MY BAG =========================");
+            for(Iten iten : itens){
+                System.err.println(iten.toString());
+            }
+            System.out.println("==========================================================\n");
         }
-        System.out.println("==========================================================");
     }
 
     public void addInBag(Iten iten){
         itens.add(iten);
-        System.out.println("Iten %s adicionado ao inventário.".formatted(iten.getName()));
+        System.out.printf("Iten %s, %s adicionado ao inventário.\n", iten.getType(), iten.getName());
     }
 
     public void removeFromBag(Iten iten){
         if(itens.remove(iten)){
-            System.out.println("Iten %s removido do inventário.".formatted(iten.getName()));
+            System.out.printf("Iten %s, %s removido do inventário.\n", iten.getType(), iten.getName());
         }else{
             System.out.println("Iten não encontrado no inventário.");
         }
